@@ -69,6 +69,15 @@ Para uma melhor fluides da nossa conversa, atente-se aos seguintes pontos:
 
 # Iniciar aplicação #
 
+## Requerimentos ##
+- node.js;
+
+## Instalação ##
+
+Na pasta do sistema, executar:
+
+```npm i````
+
 ### Via shell script:
 
 ```
@@ -92,6 +101,7 @@ Body:
 ````
 
 * Calcular uma nova rota:
+
 POST: http://localhost:3000/short
 ```
 Body:
