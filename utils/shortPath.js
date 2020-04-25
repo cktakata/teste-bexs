@@ -1,20 +1,23 @@
-module.exports.find = function () {
-    var dados =
-        [
-            { 'GRU-BRC': 10 },
-            { 'BRC-SLC': 5 },
-            { 'GRU-CDG': 75 },
-            { 'GRU-SLC': 20 },
-            { 'GRU-ORL': 56 },
-            { 'ORL-CDG': 5 },
-            { 'SLC-ORL': 20 }
-        ];
+module.exports.find = function (dados, inicio, fim) {
+    // var dados =
+    //     [
+    //         { 'GRU-BRC': 10 },
+    //         { 'BRC-SLC': 5 },
+    //         { 'GRU-CDG': 75 },
+    //         { 'GRU-SLC': 20 },
+    //         { 'GRU-ORL': 56 },
+    //         { 'ORL-CDG': 5 },
+    //         { 'SLC-ORL': 20 }
+    //     ];
+
+    // var inicio = 'SLC';
+    // var fim = 'CDG';
 
     const data = JSON.parse(JSON.stringify(dados)); // Preserva conteúdo
-    var inicio = 'SLC';
-    var fim = 'CDG';
-
-    validateRoute(dados, inicio, fim);
+    const validRoute = validateRoute(dados, inicio, fim);
+    if (!validRoute) {
+        return [];
+    }
     // Começa o programa em si
     const allPaths = run(dados, inicio, fim);
     // Calcula a rota mais barata
@@ -41,6 +44,7 @@ module.exports.find = function () {
         }
     }
     console.log(winnerPath + ", custo: " + minorCost)
+    return (winnerPath + ", custo: " + minorCost)
 
     function run(dados, inicio, fim) {
         let allPaths;
@@ -118,7 +122,7 @@ module.exports.find = function () {
         for (var obj of Object.values(dados)) {
             for (var rota of Object.keys(obj)) {
                 if (rota.split('-')[0] === inicio && blindagem % 2 === 0) {
-                    blindagem = blindagem + 1; // Transforma em par
+                    blindagem = blindagem + 1; // Transforma em ímpar
                 }
                 if (rota.split('-')[1] === fim && blindagem <= 10) {
                     blindagem = blindagem + 10;
