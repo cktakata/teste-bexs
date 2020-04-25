@@ -8,7 +8,7 @@ describe("Testing the API", () => {
         const response = await supertest(app).get('/').end(done);
         mock('../../service/file.service.js', {
             read: function () {
-                console.log('http.request called');
+                console.log('file read called');
             }
         });
 

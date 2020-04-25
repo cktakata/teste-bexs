@@ -110,3 +110,9 @@ Body:
 	"end": "BRC"
 }
 ```
+
+* Executar tests:
+
+```
+npm run test
+```
