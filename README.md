@@ -76,7 +76,7 @@ Para uma melhor fluides da nossa conversa, atente-se aos seguintes pontos:
 
 Na pasta do sistema, executar:
 
-```npm i````
+```npm i```
 
 ### Via shell script:
 
