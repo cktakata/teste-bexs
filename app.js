@@ -6,7 +6,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-    res.send('Hello World!');
+    res.status(200).send('Hello World!');
 });
 
 app.post('/add', function (req, res) {
@@ -16,7 +16,7 @@ app.post('/add', function (req, res) {
     var readFile = require('./service/file.service.js');
     const dados = readFile.read('./data/input-file.txt');
     console.log("Route Data:\n", dados);
-    res.send("Saved!");
+    res.status(200).send("Saved!");
 });
 
 app.post('/short', function (req, res) {
@@ -26,12 +26,17 @@ app.post('/short', function (req, res) {
     const dados = readFile.read('./data/input-file.txt');
     const bkpData = JSON.parse(JSON.stringify(dados)); // Preserva conteúdo
     const result = require('./utils/shortPath.js').find(bkpData, inicio, fim);
-    res.send(result);
+    res.status(200).send(result);
 });
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
-    var readFile = require('./service/file.service.js');
-    const dados = readFile.read('./data/input-file.txt');
-    console.log("Route Data:\n", dados);
+    try {
+        var readFile = require('./service/file.service.js');
+        const dados = readFile.read('./data/input-file.txt');
+        console.log("Route Data:\n", dados);
+    } catch (e) {
+        console.log("No data loaded");
+    }
+
 });
