@@ -66,26 +66,37 @@ Para uma melhor fluides da nossa conversa, atente-se aos seguintes pontos:
   * Descreva sua APÌ Rest de forma simplificada.
 
 -----------
-1) Chamar o arquivo via linha de comando:
 
+## Iniciar aplicação ##
+
+- Via shell script:
+
+```
 npm run start -- arquivo.txt
+````
 
 Obs: Coloque sempre o arquivo dentro da pasta raiz do projeto
 
-2) Adicionar uma nova rota:
+- Via serviço REST:
+
+* Adicionar uma nova rota:
 
 POST: http://localhost:3000/add
+```
 Body:
 {
 	"start": "SCL",
 	"end": "BRC",
 	"value": 54
 }
+````
 
-3) Calcular uma nova rota:
+* Calcular uma nova rota:
 POST: http://localhost:3000/short
+```
 Body:
 {
 	"start": "SCL",
 	"end": "BRC"
 }
+```
