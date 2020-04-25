@@ -67,9 +67,9 @@ Para uma melhor fluides da nossa conversa, atente-se aos seguintes pontos:
 
 -----------
 
-## Iniciar aplicação ##
+# Iniciar aplicação #
 
-# Via shell script:
+### Via shell script:
 
 ```
 npm run start -- arquivo.txt
@@ -77,7 +77,7 @@ npm run start -- arquivo.txt
 
 Obs: Coloque sempre o arquivo dentro da pasta raiz do projeto
 
-# Via serviço REST:
+### Via serviço REST:
 
 * Adicionar uma nova rota:
 
